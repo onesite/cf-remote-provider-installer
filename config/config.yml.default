@@ -1,0 +1,25 @@
+# Valid active providers: ['aws', 'rackspace', 'digital_ocean', 'cloudstack']
+active_provider: ''
+# Domain where the applications will be hosted from. Domain should be in the format of 'example.com'
+hosting_domain: ''
+# Keyfile to use in conf/ssh/
+ssh_key_name: 'static_id_rsa'
+
+# Amazon
+aws:
+  access_key_id: ''
+  secret_access_key: ''
+  keypair_name: 'static_id_rsa'
+
+# Rackspace
+rackspace:
+  username: ''
+  api_key: ''
+  keypair_name: 'static_id_rsa'
+
+# Digital Ocean
+digital_ocean:
+  client_id: ''
+  api_key: ''
+  ssh_key_name: 'static_id_rsa'
+

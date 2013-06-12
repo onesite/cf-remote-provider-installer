@@ -1,0 +1,46 @@
+{
+  "sha": "d44254a3ebfffc7b9de01d1025d527a3242f48db",
+  "sources": {
+    "apt": {
+      "locked_version": "2.0.0"
+    },
+    "build-essential": {
+      "locked_version": "1.4.0"
+    },
+    "logrotate": {
+      "locked_version": "1.2.2"
+    },
+    "rbenv": {
+      "locked_version": "1.4.2"
+    },
+    "rsync": {
+      "locked_version": "0.8.0"
+    },
+    "cloudfoundry": {
+      "path": "./chef/cookbooks/cloudfoundry"
+    },
+    "git": {
+      "locked_version": "2.5.2"
+    },
+    "dmg": {
+      "locked_version": "1.1.0"
+    },
+    "yum": {
+      "locked_version": "2.3.0"
+    },
+    "windows": {
+      "locked_version": "1.10.0"
+    },
+    "chef_handler": {
+      "locked_version": "1.1.4"
+    },
+    "runit": {
+      "locked_version": "1.1.6",
+      "constraint": ">= 1.0.0"
+    },
+    "ohai": {
+      "locked_version": "1.1.10",
+      "constraint": ">= 1.1.0"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+# <%= @component_name %> Service
+
+description     "<%= @component_name %>"
+author          "Andrea Campi <andrea.campi@zephirworks.com>"
+
+start on (net-device-up
+          and filesystem
+      and runlevel [2345])
+stop on runlevel [016]
+
+respawn
+
+env PATH="<%= @path %>:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+export PATH
+
+pre-start script
+  mkdir -p `dirname '<%= @pid_file %>'`
+  chown <%= @user %>:<%= @user %> `dirname '<%= @pid_file %>'`
+end script
+
+exec start-stop-daemon --start --chuid <%= @user %> --pid <%= @pid_file %> --startas <%= @path %>/ruby -- <%= @bin_file %> -c <%= @config_file %> <%= @extra_args %>

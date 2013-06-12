@@ -1,0 +1,5 @@
+config/config.yml
+config/ssh/static_id_rsa
+config/ssh/static_id_rsa.pub
+.vagrant/*
+cloud.settings
