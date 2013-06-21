@@ -27,7 +27,9 @@ Vagrant.configure('2') do |config|
   
   # Sets the ssh keys to be used to the default INSECURE keys. 
   # To create your own keys use ssh-keygen and change the path below.
-  config.ssh.private_key_path = File.join(get_config_dir, 'ssh', provider_settings.ssh_key_name)
+  if provider_settings.active_provider != 'virtualbox'
+    config.ssh.private_key_path = File.join(get_config_dir, 'ssh', provider_settings.ssh_key_name)
+  end
 
   # Custom settings for the deployed virtual machine
   config.vm.define :static_cloud do |static_cloud|
@@ -101,8 +103,10 @@ Vagrant.configure('2') do |config|
 
   # Virtualbox
   config.vm.provider :virtualbox do |virtualbox, override|
-    virtualbox.customize ["modifyvm", :id, "--memory", "6144"]
+    virtualbox.customize ["modifyvm", :id, "--memory", "4096"]
 
+    override.vm.network :forwarded_port, host: 80, guest: 80
+    override.vm.network :forwarded_port, host: 443, guest: 443
     override.vm.network :forwarded_port, host: 8080, guest: 8080
     override.vm.box = "lucid64"
     override.vm.box_url = "http://files.vagrantup.com/lucid64.box"
